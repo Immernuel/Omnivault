@@ -1,0 +1,4 @@
+cargo:rustc-link-arg=-zstack-size=65536
+cargo:rustc-link-arg=--import-memory
+cargo:rustc-link-arg=--export=__data_end
+cargo:rustc-link-arg=--export=__heap_base

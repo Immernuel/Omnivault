@@ -1,0 +1,14 @@
+/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/deps/serde-c256b6726a538db6.d: /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/build/serde-1e77cd10ffeb9851/out/private.rs
+
+/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/deps/libserde-c256b6726a538db6.rlib: /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/build/serde-1e77cd10ffeb9851/out/private.rs
+
+/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/deps/libserde-c256b6726a538db6.rmeta: /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/build/serde-1e77cd10ffeb9851/out/private.rs
+
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/build/serde-1e77cd10ffeb9851/out/private.rs:
+
+# env-dep:OUT_DIR=/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/build/serde-1e77cd10ffeb9851/out

@@ -1,0 +1,1 @@
+/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/wallet_core.wasm: /home/vscode/pl_genesis/omnivault/contracts/wallet_core/src/lib.rs /home/vscode/pl_genesis/omnivault/target/near/wallet_core/wallet_core_abi.zst

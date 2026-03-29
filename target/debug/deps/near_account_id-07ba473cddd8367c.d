@@ -1,0 +1,11 @@
+/home/vscode/pl_genesis/omnivault/target/debug/deps/near_account_id-07ba473cddd8367c.d: /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/lib.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/errors.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/account_id.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/account_id_ref.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/borsh.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/serde.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/validation.rs
+
+/home/vscode/pl_genesis/omnivault/target/debug/deps/libnear_account_id-07ba473cddd8367c.rmeta: /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/lib.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/errors.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/account_id.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/account_id_ref.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/borsh.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/serde.rs /home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/validation.rs
+
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/lib.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/errors.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/account_id.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/account_id_ref.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/borsh.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/serde.rs:
+/home/vscode/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/near-account-id-1.1.4/src/validation.rs:
