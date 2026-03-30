@@ -1,1 +1,0 @@
-/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/chain_bridge.wasm: /home/vscode/pl_genesis/omnivault/contracts/chain_bridge/src/lib.rs /home/vscode/pl_genesis/omnivault/target/near/chain_bridge/chain_bridge_abi.zst
