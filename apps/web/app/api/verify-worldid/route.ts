@@ -41,7 +41,11 @@ export async function POST(req: NextRequest) {
     }
 
     // Dev bypass for localhost testing
-    if (dev_bypass && process.env.NODE_ENV === "development") {
+    if (
+      dev_bypass &&
+      (process.env.NODE_ENV === "development" ||
+        process.env.NEXT_PUBLIC_ALLOW_DEV_BYPASS === "true")
+    ) {
       await callVerifyUser(nearAccountId, proof.nullifier_hash);
       return NextResponse.json({ success: true });
     }
