@@ -1,7 +1,12 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { MiniKit } from "@worldcoin/minikit-js";
+import {
+  MiniKit,
+  VerifyCommandInput,
+  VerificationLevel,
+  ISuccessResult,
+} from "@worldcoin/minikit-js";
 
 export function useWorldId(nearAccountId: string | null) {
   const [verifying, setVerifying] = useState(false);
@@ -19,31 +24,62 @@ export function useWorldId(nearAccountId: string | null) {
 
     try {
       if (!MiniKit.isInstalled()) {
-        setError("Open OmniVault inside World App");
+        // Fallback — dev bypass when outside World App
+        if (
+          process.env.NODE_ENV === "development" ||
+          process.env.NEXT_PUBLIC_ALLOW_DEV_BYPASS === "true"
+        ) {
+          const res = await fetch("/api/verify-worldid", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              proof: {
+                proof: "dev_proof",
+                merkle_root: "dev_root",
+                nullifier_hash: `dev-${nearAccountId}-${Date.now()}`,
+                verification_level: "device",
+              },
+              nearAccountId,
+              dev_bypass: true,
+            }),
+          });
+          const data = await res.json();
+          if (data.success) {
+            setVerified(true);
+            setVerifying(false);
+            return true;
+          }
+          setError(data.error || "Verification failed");
+          setVerifying(false);
+          return false;
+        }
+
+        setError("Please open OmniVault inside World App to verify");
         setVerifying(false);
         return false;
       }
 
-      // ✅ NEW API
-      const result = await (MiniKit as any).verify({
+      // Real World App flow
+      const verifyPayload: VerifyCommandInput = {
         action: "omnivault-deposit",
         signal: nearAccountId,
-      });
+        verification_level: VerificationLevel.Device,
+      };
 
-      if (result.status !== "success") {
-        setError("Verification failed or cancelled");
+      const { finalPayload } =
+        await MiniKit.commandsAsync.verify(verifyPayload);
+
+      if (finalPayload.status === "error") {
+        setError("World ID verification cancelled or failed");
         setVerifying(false);
         return false;
       }
 
-      // ✅ Send to backend
       const res = await fetch("/api/verify-worldid", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          proof: result,
+          proof: finalPayload as ISuccessResult,
           nearAccountId,
         }),
       });
