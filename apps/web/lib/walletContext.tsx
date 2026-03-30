@@ -36,8 +36,14 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
       const _selector = await setupWalletSelector({
         network: "testnet",
         modules: [
-          setupMyNearWallet({
-            walletUrl: "https://testnet.mynearwallet.com",
+         setupMyNearWallet({
+            walletUrl:  "https://testnet.mynearwallet.com",
+            successUrl: typeof window !== "undefined"
+              ? `${window.location.origin}/dashboard`
+              : "https://defi-vault-eta.vercel.app/dashboard",
+            failureUrl: typeof window !== "undefined"
+              ? `${window.location.origin}/`
+              : "https://defi-vault-eta.vercel.app/",
           }),
         ],
       });
