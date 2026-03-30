@@ -1,0 +1,420 @@
+{
+  "schema_version": "0.4.0",
+  "metadata": {
+    "name": "vault_core",
+    "version": "0.1.0",
+    "build": {
+      "compiler": "rustc 1.86.0",
+      "builder": "cargo-near cargo-near-build 0.11.1"
+    },
+    "wasm_hash": "Hbsv9vMxBNn2NgrByix3AYvPXkGVsxopX9sp5ecRqQnY"
+  },
+  "body": {
+    "functions": [
+      {
+        "name": "close_position",
+        "kind": "call",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "$ref": "#/definitions/Promise"
+          }
+        }
+      },
+      {
+        "name": "contract_source_metadata",
+        "kind": "view"
+      },
+      {
+        "name": "get_coming_soon",
+        "kind": "view",
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": "array",
+            "items": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "maxItems": 3,
+            "minItems": 3
+          }
+        }
+      },
+      {
+        "name": "get_position",
+        "kind": "view",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer",
+                "format": "uint64",
+                "minimum": 0.0
+              }
+            ],
+            "maxItems": 11,
+            "minItems": 11
+          }
+        }
+      },
+      {
+        "name": "get_position_count",
+        "kind": "view",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "user",
+              "type_schema": {
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": "integer",
+            "format": "uint32",
+            "minimum": 0.0
+          }
+        }
+      },
+      {
+        "name": "get_supported_options",
+        "kind": "view",
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": "array",
+            "items": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "maxItems": 3,
+            "minItems": 3
+          }
+        }
+      },
+      {
+        "name": "get_user_positions",
+        "kind": "view",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "user",
+              "type_schema": {
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "maxItems": 7,
+              "minItems": 7
+            }
+          }
+        }
+      },
+      {
+        "name": "new",
+        "kind": "call",
+        "modifiers": [
+          "init"
+        ],
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "owner",
+              "type_schema": {
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            },
+            {
+              "name": "wallet_contract",
+              "type_schema": {
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            },
+            {
+              "name": "bridge_contract",
+              "type_schema": {
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "open_position",
+        "kind": "call",
+        "modifiers": [
+          "payable"
+        ],
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "user",
+              "type_schema": {
+                "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            },
+            {
+              "name": "origin_chain",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "origin_asset",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "network",
+              "type_schema": {
+                "$ref": "#/definitions/Network"
+              }
+            },
+            {
+              "name": "yield_type",
+              "type_schema": {
+                "$ref": "#/definitions/YieldType"
+              }
+            },
+            {
+              "name": "protocol",
+              "type_schema": {
+                "$ref": "#/definitions/Protocol"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": "string"
+          }
+        }
+      },
+      {
+        "name": "position_active",
+        "kind": "call",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "yield_token_amount",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "position_closed",
+        "kind": "call",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "update_yield_amount",
+        "kind": "call",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "new_amount",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "root_schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "String",
+      "type": "string",
+      "definitions": {
+        "Network": {
+          "type": "string",
+          "enum": [
+            "Ethereum",
+            "Base",
+            "Arbitrum"
+          ]
+        },
+        "Promise": true,
+        "Protocol": {
+          "type": "string",
+          "enum": [
+            "Aave",
+            "Compound",
+            "Uniswap",
+            "Curve"
+          ]
+        },
+        "YieldType": {
+          "type": "string",
+          "enum": [
+            "Lending",
+            "LpDex",
+            "Staking"
+          ]
+        }
+      }
+    }
+  }
+}

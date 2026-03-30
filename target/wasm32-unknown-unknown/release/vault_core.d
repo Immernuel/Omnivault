@@ -1,0 +1,1 @@
+/home/vscode/pl_genesis/omnivault/target/wasm32-unknown-unknown/release/vault_core.wasm: /home/vscode/pl_genesis/omnivault/contracts/vault_core/src/lib.rs /home/vscode/pl_genesis/omnivault/target/near/vault_core/vault_core_abi.zst
