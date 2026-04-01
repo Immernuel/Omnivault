@@ -69,7 +69,7 @@ export async function openYieldPosition(
           yield_type: params.yieldType,
           protocol: params.protocol,
         },
-        "100000000000000",
+        "300000000000000",
         params.rawAmount,
       ),
     ],

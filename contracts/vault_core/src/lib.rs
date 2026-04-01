@@ -262,7 +262,7 @@ impl VaultCore {
                     position_id, user, amount
                 ).into_bytes(),
                 NearToken::from_yoctonear(amount),
-                Gas::from_tgas(30),
+                Gas::from_tgas(200),
             );
 
         position_id

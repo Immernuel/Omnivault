@@ -252,7 +252,7 @@ impl WalletCore {
                     user, origin_chain, origin_asset, network, yield_type, protocol
                 ).into_bytes(),
                 NearToken::from_yoctonear(amount_u128),
-                Gas::from_tgas(50),
+                Gas::from_tgas(270),
             )
     }
 

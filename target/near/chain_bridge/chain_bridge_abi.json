@@ -7,7 +7,7 @@
       "compiler": "rustc 1.86.0",
       "builder": "cargo-near cargo-near-build 0.11.1"
     },
-    "wasm_hash": "BTkFY7pfr4v9fyq2bdB448bkYdKoKgpvmKHBNAx4qBpQ"
+    "wasm_hash": "64rHmYDc6AaUDNdqofqrpQrrvLs9S5sdxR2VBhqDE5d"
   },
   "body": {
     "functions": [
@@ -132,6 +132,30 @@
         }
       },
       {
+        "name": "get_pending_signature",
+        "kind": "view",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      {
         "name": "get_vault_contract",
         "kind": "view",
         "result": {
@@ -150,52 +174,6 @@
           "type_schema": {
             "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
             "type": "string"
-          }
-        }
-      },
-      {
-        "name": "get_wallet_transfer",
-        "kind": "view",
-        "params": {
-          "serialization_type": "json",
-          "args": [
-            {
-              "name": "transfer_id",
-              "type_schema": {
-                "type": "string"
-              }
-            }
-          ]
-        },
-        "result": {
-          "serialization_type": "json",
-          "type_schema": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "string"
-              },
-              {
-                "type": "string"
-              },
-              {
-                "type": "string"
-              },
-              {
-                "type": "string"
-              },
-              {
-                "type": "string"
-              }
-            ],
-            "maxItems": 6,
-            "minItems": 6
           }
         }
       },
@@ -238,11 +216,65 @@
               },
               {
                 "type": "string"
+              },
+              {
+                "type": [
+                  "string",
+                  "null"
+                ]
               }
             ],
-            "maxItems": 6,
-            "minItems": 6
+            "maxItems": 7,
+            "minItems": 7
           }
+        }
+      },
+      {
+        "name": "initiate_mpc_signing",
+        "kind": "call",
+        "modifiers": [
+          "payable"
+        ],
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "result": {
+          "serialization_type": "json",
+          "type_schema": {
+            "$ref": "#/definitions/Promise"
+          }
+        }
+      },
+      {
+        "name": "mpc_sign_callback",
+        "kind": "call",
+        "modifiers": [
+          "private"
+        ],
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "payload_hash",
+              "type_schema": {
+                "type": "string"
+              }
+            }
+          ]
         }
       },
       {
@@ -279,6 +311,33 @@
               "name": "mpc_contract",
               "type_schema": {
                 "description": "NEAR Account Identifier.\n\nThis is a unique, syntactically valid, human-readable account identifier on the NEAR network.\n\n[See the crate-level docs for information about validation.](index.html#account-id-rules)\n\nAlso see [Error kind precedence](AccountId#error-kind-precedence).\n\n## Examples\n\n``` use near_account_id::AccountId;\n\nlet alice: AccountId = \"alice.near\".parse().unwrap();\n\nassert!(\"ƒelicia.near\".parse::<AccountId>().is_err()); // (ƒ is not f) ```",
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "position_broadcast_confirmed",
+        "kind": "call",
+        "params": {
+          "serialization_type": "json",
+          "args": [
+            {
+              "name": "position_id",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "eth_tx_hash",
+              "type_schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "ausdc_amount",
+              "type_schema": {
                 "type": "string"
               }
             }
@@ -378,7 +437,10 @@
     "root_schema": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "String",
-      "type": "string"
+      "type": "string",
+      "definitions": {
+        "Promise": true
+      }
     }
   }
 }
