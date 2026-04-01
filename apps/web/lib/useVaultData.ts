@@ -93,6 +93,19 @@ export function yoctoToNear(yocto: string): string {
   return formatAssetAmount(yocto, "NEAR");
 }
 
+// ── U128 helper — contract returns U128 as string or object ──
+function u128ToString(val: any): string {
+  if (typeof val === "string") return val;
+  if (typeof val === "number") return val.toString();
+  // U128 from NEAR SDK can come as object with numeric keys
+  if (typeof val === "object" && val !== null) {
+    // Try common patterns
+    if ("0" in val) return Object.values(val).join("");
+    return JSON.stringify(val);
+  }
+  return "0";
+}
+
 // ── Types ─────────────────────────────────────────────────────
 export interface AssetBalance {
   asset: string; // "NEAR" | "ETH_SEPOLIA" etc
@@ -180,40 +193,27 @@ export function useVaultData(accountId: string | null): VaultData {
       setVaultDeposit(vaultDep);
 
       // Fetch positions
-      const rawPositions: [
-        string,
-        string,
-        string,
-        string,
-        string,
-        string,
-        string,
-      ][] = await account.viewFunction({
+      // Contract returns: (id, U128(amount), protocol, network, status, U128(yield_token_amount), origin_asset)
+      const rawPositions: any[] = await account.viewFunction({
         contractId: CONTRACT_ADDRESSES.vault_core,
         methodName: "get_user_positions",
         args: { user: accountId },
       });
 
       setPositions(
-        rawPositions.map(
-          ([
-            id,
-            amount,
-            protocol,
-            network,
-            status,
-            yield_token_amount,
-            origin_asset,
-          ]) => ({
-            id,
-            amount,
-            protocol,
-            network,
-            status: status as Position["status"],
-            yield_token_amount,
-            origin_asset,
-          }),
-        ),
+        rawPositions.map((p: any) => {
+          // Handle both array tuple and object formats
+          const arr = Array.isArray(p) ? p : Object.values(p);
+          return {
+            id:                 String(arr[0] ?? ""),
+            amount:             u128ToString(arr[1]),
+            protocol:           String(arr[2] ?? ""),
+            network:            String(arr[3] ?? ""),
+            status:             String(arr[4] ?? "bridging") as Position["status"],
+            yield_token_amount: u128ToString(arr[5]),
+            origin_asset:       String(arr[6] ?? "NEAR"),
+          };
+        }),
       );
     } catch (err: any) {
       console.error("Failed to fetch vault data:", err);
