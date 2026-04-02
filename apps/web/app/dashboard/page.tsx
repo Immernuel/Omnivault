@@ -31,7 +31,7 @@ export default function Dashboard() {
   const [showDeposit, setShowDeposit] = useState(false);
 
   const totalYield = positions
-    .filter(p => p.status === "active" && BigInt(p.yield_token_amount) > BigInt(p.amount))
+   .filter(p => p.status === "active" && BigInt(p.yield_token_amount) > 0n)
     .reduce((acc, p) => {
       const k = p.origin_asset === "ETH" ? "ETH_SEPOLIA" : p.origin_asset === "USDC" ? "USDC_SEPOLIA" : "NEAR";
       return acc + (assetToUSD(p.yield_token_amount, k) - assetToUSD(p.amount, k));
@@ -46,7 +46,7 @@ export default function Dashboard() {
 
   const positionGroups = Object.values(
     positions
-      .filter(p => p.status === "active")
+      .filter(p => p.status === "active" || p.status === "bridging")
       .reduce((acc, p) => {
         const key = `${p.protocol}-${p.network}`;
         if (!acc[key]) acc[key] = { protocol: p.protocol, network: p.network, count: 0, total: 0, yieldTotal: 0 };
