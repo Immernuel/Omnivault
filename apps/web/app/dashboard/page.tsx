@@ -31,7 +31,7 @@ export default function Dashboard() {
   const [showDeposit, setShowDeposit] = useState(false);
 
   const totalYield = positions
-   .filter(p => p.status === "active" && BigInt(p.yield_token_amount) > 0n)
+   .filter(p => p.status === "active" && BigInt(p.yield_token_amount) > BigInt(0))
     .reduce((acc, p) => {
       const k = p.origin_asset === "ETH" ? "ETH_SEPOLIA" : p.origin_asset === "USDC" ? "USDC_SEPOLIA" : "NEAR";
       return acc + (assetToUSD(p.yield_token_amount, k) - assetToUSD(p.amount, k));
