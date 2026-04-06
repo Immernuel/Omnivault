@@ -96,7 +96,7 @@ export async function closeYieldPosition(
           origin_asset: params.originAsset,
         },
         "200000000000000", // 200 Tgas
-        "1",              // 1 yoctoNEAR
+        "0",              // 1 yoctoNEAR
       ),
     ],
   });
