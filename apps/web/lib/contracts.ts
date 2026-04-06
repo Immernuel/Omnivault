@@ -111,6 +111,6 @@ export async function withdrawFromWallet(
 
   await (wallet as any).signAndSendTransaction({
     receiverId: CONTRACT_ADDRESSES.wallet_core,
-    actions: [makeAction("withdraw", { amount: yocto }, "30000000000000", "1")],
+    actions: [makeAction("withdraw", { amount: yocto }, "30000000000000", "0")],
   });
 }
