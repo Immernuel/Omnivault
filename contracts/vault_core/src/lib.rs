@@ -335,7 +335,7 @@ impl VaultCore {
         // Tell chain_bridge to pull funds back
         // chain_bridge will:
         //   1. Redeem aUSDC → USDC on Ethereum
-        //   2. Bridge back to origin chain (e.g. Polygon)
+        //   2. Bridge back to origin chain (e.g. Near)
         //   3. Call wallet_core.receive_from_vault()
         Promise::new(self.bridge_contract.clone()).function_call(
             "execute_yield_exit".to_string(),

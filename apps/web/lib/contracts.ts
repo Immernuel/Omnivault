@@ -54,7 +54,6 @@ export async function openYieldPosition(
   },
 ): Promise<void> {
   const wallet = await selector.wallet();
-  const yocto = params.rawAmount; // already in raw units
 
   await (wallet as any).signAndSendTransaction({
     receiverId: CONTRACT_ADDRESSES.wallet_core,
@@ -71,6 +70,33 @@ export async function openYieldPosition(
         },
         "300000000000000",
         params.rawAmount,
+      ),
+    ],
+  });
+}
+
+export async function closeYieldPosition(
+  selector: WalletSelector,
+  params: {
+    positionId: string;
+    originChain: string;
+    originAsset: string;
+  },
+): Promise<void> {
+  const wallet = await selector.wallet();
+
+  await (wallet as any).signAndSendTransaction({
+    receiverId: CONTRACT_ADDRESSES.wallet_core,
+    actions: [
+      makeAction(
+        "close_yield_position",
+        {
+          position_id: params.positionId,
+          origin_chain: params.originChain,
+          origin_asset: params.originAsset,
+        },
+        "200000000000000", // 200 Tgas
+        "1",              // 1 yoctoNEAR
       ),
     ],
   });
